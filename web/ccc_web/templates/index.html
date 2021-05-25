@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block content %}
+
+
+<div class="polaroid">
+    <img src="{% static 'image/twitter.png' %}" style="width:100%">
+    <div class="container">
+    <p><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'tweets' %}">Start tweet analysis -></a></p>
+    </div>
+  </div>
+{% endblock %}

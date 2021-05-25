@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block content %}
+<link href="{% static 'theme/css/tweets.css' %}" rel="stylesheet" />
+<section>
+    <!--for demo wrap-->
+    <h1>100 Most recent Poor region tweets</h1>
+    <h1>( total document count: {{c1}} )</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>tweet id</th>
+            <th>text content</th>
+            <th>time created</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+            {% for d in poor %}
+          <tr>
+            {% for i in d %}
+            <td>{{i}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h1 style="margin-top: 60px;">100 Most recent Wealthy region tweets</h1>
+    <h1>( total document count: {{c2}} )</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>tweet id</th>
+            <th>text content</th>
+            <th>time created</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+            {% for r in rich %} 
+          <tr>
+            {% for j in r %}
+            <td>{{j}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <p><a class="nav-link py-3 px-0 px-lg-3 rounded" style="color: white;" href="{% url 'results' %}">See results -></a></p>
+    </div>
+  </section>
+  
+{% endblock %}

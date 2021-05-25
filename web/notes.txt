@@ -1,0 +1,13 @@
+1.install docker
+2.configure proxy for both vm and docker
+3.upload django repository
+4.build image:
+sudo docker build -t django_docker_img:v1 .
+5.run image:
+sudo docker run -it -d --name cccweb -p 80:8000 django_docker_img:v1
+6.enter image container and start web service:
+sudo docker exec -it mysite1 /bin/bash
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver 0.0.0.0:8000
+7.press ctrlP+ctrlQ to exit container
